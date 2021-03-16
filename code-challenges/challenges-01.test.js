@@ -145,17 +145,18 @@ const fizzbuzz = (arr) => {
     if (num % 5 == 0 && num % 3 == 0){
       newArray.push('Fizz Buzz');
     }
-    if (num % 5 == 0){
+    else if (num % 5 == 0){
       newArray.push('Buzz');
     }
-    if (num % 3 == 0){
+    else if (num % 3 == 0){
       newArray.push('Fizz')
     }
     else {
       newArray.push(num)
     }
-    return newArray;
   })
+  return newArray;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -229,7 +230,7 @@ describe("Testing challenge 6", () => {
   });
 });
 
-xdescribe("Testing challenge 7", () => {
+describe("Testing challenge 7", () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   test("It should print out messages or numbers", () => {
