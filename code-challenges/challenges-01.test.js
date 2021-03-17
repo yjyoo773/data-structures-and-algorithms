@@ -95,6 +95,8 @@ const addNumbers = (num, arr, times, callback) => {
     callback(arr,num);
   }
   return arr;
+
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
