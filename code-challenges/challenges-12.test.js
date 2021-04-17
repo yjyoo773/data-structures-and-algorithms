@@ -9,7 +9,9 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  // Solution code here...
+  return arr.reduce((a, v, i) => {
+    return a >= v ? a : v;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,7 +29,7 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  return Math.max(...[].concat(...matrix));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,9 +47,8 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+  return [].concat(...matrix).reduce((a, v) => a + v, 0);
 };
-
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -72,8 +73,8 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  const total = stores.reduce((a, v) => a.map((x, i) => x + v[i]));
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -87,7 +88,11 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let result = [];
+  hours.forEach((x, ind) => {
+    result.push({ sales: data[ind] + " cookies", time: x });
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -112,7 +117,16 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let result = [];
+  arr.forEach((x) => {
+    let itemList = x.items;
+    itemList.forEach((y) => {
+      if (y.name === "Treats") {
+        result.push(y.quantity);
+      }
+    });
+  });
+  return result.reduce((a, v) => a + v);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -133,10 +147,14 @@ Here is a sample board:
 The top row of the board is considered row zero and row numbers increase as they go down.
 ------------------------------------------------------------------------------------------------ */
 
-const battleship = (board, row, col) => {
-  //  Solution code here...
-};
 
+const battleship = (board, row, col) => {
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board[i].length; j++) {
+      return board[row][col] === "#" ? "hit" : "miss";
+    }
+  }
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
@@ -146,7 +164,7 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
+  return [].concat(...numbers).reduce((a, v) => (a = a * v), 1);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,9 +184,10 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
+  let unnest = [].concat(...weather);
+  let sum = unnest.reduce((a, v) => (a += v), 0);
+  return sum / unnest.length;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
 
@@ -187,9 +206,9 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let weeklySum = weather.map((x) => x.reduce((a, v) => (a += v)));
+  return Math.min(...weeklySum.map((x) => x / 7));
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 11 - Stretch Goal
 
@@ -202,8 +221,10 @@ The function should parse the string as rows and columns and compute the sum of 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
+
 const excel = (str) => {
-  // Solution code here...
+  let splitRC = str.split("\n").map((x) => x.split(",").map((y) => Number(y)));
+  return splitRC.map((x) => x.reduce((a, v) => (a += v)));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -272,7 +293,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   const battleshipData = [
     ['#', ' ', '#', ' '],
     ['#', ' ', '#', ' '],
@@ -291,7 +312,7 @@ xdescribe('Testing challenge 7', () => {
   });
 });
 
-xdescribe('Testing challenge 8', () => {
+describe('Testing challenge 8', () => {
   test('It should multiply all the numbers together', () => {
     expect(calculateProduct([[1, 2], [3, 4], [5, 6]])).toStrictEqual(720);
   });
@@ -304,20 +325,20 @@ xdescribe('Testing challenge 8', () => {
   });
 });
 
-xdescribe('Testing challenge 9', () => {
+describe('Testing challenge 9', () => {
   test('It should calculate and return the average temperature of the data set', () => {
     expect(averageDailyTemperature(weeklyTemperatures)).toStrictEqual(60.25);
   });
 });
 
-xdescribe('Testing challenge 10', () => {
+describe('Testing challenge 10', () => {
   test('It should return the lowest weekly average temperature within the data set', () => {
     expect(lowestWeeklyAverage(weeklyTemperatures)).toStrictEqual(57);
     expect(lowestWeeklyAverage(lowestWeeklyTemperatureData)).toStrictEqual(46);
   });
 });
 
-xdescribe('Testing challenge 11', () => {
+describe('Testing challenge 11', () => {
   test('It should return the total count for each row', () => {
     let result = excel('1,1,1\n4,4,4\n9,9,9');
     expect(result.length).toStrictEqual(3);
