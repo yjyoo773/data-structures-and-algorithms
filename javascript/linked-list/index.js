@@ -1,7 +1,5 @@
-'use strict';
+"use strict";
+'use strict'
 
-class LinkedList {
-
-}
-
-module.exports = LinkedList;
+const LinkedList = require('./lib/linked-list')
+let ll = new LinkedList()
