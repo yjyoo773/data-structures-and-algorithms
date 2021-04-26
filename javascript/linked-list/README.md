@@ -13,3 +13,5 @@ NA
 ## API
 <!-- Description of each method publicly available to your Linked List -->
 NA
+
+![](/img/ll-insertions.jpeg)
