@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 const Node = require("./node");
 
@@ -46,6 +46,34 @@ class LinkedList {
     }
   }
 
+  insertBefore(val, newVal) {
+    let newNode = new Node(newVal);
+    if (!this.includes(val)) {
+      return false;
+    } else {
+      let cur = this.head;
+      while (cur.next.val !== val) {
+        cur = cur.next;
+      }
+      newNode.next = cur.next;
+      cur.next = newNode;
+    }
+  }
+
+  insertAfter(val, newVal) {
+    let newNode = new Node(newVal);
+    if (!this.includes(val)) {
+      return false;
+    } else {
+      let cur = this.head;
+      while (cur.val !== val) {
+        cur = cur.next;
+      }
+      newNode.next = cur.next;
+      cur.next = newNode;
+    }
+  }
+
   toString() {
     let result = "";
     if (this.head === null) {
@@ -53,7 +81,7 @@ class LinkedList {
     } else {
       let cur = this.head;
       while (cur !== null) {
-        result = result.concat("{",cur.val,"}", " -> ");
+        result = result.concat("{", cur.val, "}", " -> ");
         cur = cur.next;
       }
     }
