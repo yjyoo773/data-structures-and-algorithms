@@ -87,6 +87,18 @@ class LinkedList {
     }
     return result.concat("NULL");
   }
+
+  kthfromEnd(k){
+    if (!this) return false
+    if (k<0) return false
+    let size = this.toString().split('->').length - 1
+    if (size <= k ) return false
+    let cur = this.head
+    for (let i = 0; i < size - k - 1; i++){
+      cur = cur.next
+    }
+    return cur.val
+  }
 }
 
 module.exports = LinkedList;
