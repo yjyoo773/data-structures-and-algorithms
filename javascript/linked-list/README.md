@@ -15,3 +15,4 @@ NA
 NA
 
 ![](/img/ll-insertions.jpeg)
+![](/img/ll-kth-end.jpeg)

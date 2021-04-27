@@ -36,7 +36,6 @@ describe("Linked List", () => {
     var linkedList = new LinkedList();
     linkedList.insert("test node1");
     linkedList.insert("test node2");
-
     expect(linkedList.includes("test node1")).toBeTruthy();
   });
 
@@ -89,4 +88,34 @@ describe("Linked List", () => {
       "{test node1} -> {test node2} -> {test node3} -> {test node4} -> NULL";
     expect(ll.toString()).toEqual(expected);
   });
+
+  it("Should return false if k is greater than length of linked list",()=>{
+    var ll = new LinkedList()
+    ll.append("test node1");
+    ll.append("test node2");
+    expect(ll.kthfromEnd(10)).toBeFalsy()
+  })
+
+  it("Should return false if k and the length of the linked list is equal",()=>{
+    var ll = new LinkedList()
+    ll.append("test node1");
+    ll.append("test node2");
+    expect(ll.kthfromEnd(2)).toBeFalsy()
+  })
+
+  it("Should return false if k is a negative interger",()=>{
+    var ll = new LinkedList()
+    ll.append("test node1");
+    expect(ll.kthfromEnd(-1)).toBeFalsy()
+  })
+
+  it("Shouyld return the value of the node that is k from the end of the linked list",()=>{
+    var ll = new LinkedList()
+    ll.append(1)
+    ll.append(3)
+    ll.append(8)
+    ll.append(2)
+    expect(ll.kthfromEnd(2)).toEqual(3)
+
+  })
 });
