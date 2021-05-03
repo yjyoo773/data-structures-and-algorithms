@@ -11,7 +11,8 @@ function Stack() {
   
   Stack.prototype.pop = function() {
     if (this.length === 0) return false
-    let result = this[this.length--]
+    const result = this[this.length-1]
+    this[this.length--]
     delete this[this.length]
     return result
   }
