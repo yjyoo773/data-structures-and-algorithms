@@ -17,4 +17,4 @@ Create a queue using two stacks
 - O(1) for time complexity
 ## Solution
 <!-- Embedded whiteboard image -->
-![](/img/q-with-stack.jpeg)
+![](./img/q-with-stack.jpeg)

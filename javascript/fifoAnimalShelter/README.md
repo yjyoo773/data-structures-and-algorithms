@@ -9,4 +9,4 @@ Able to store dogs and cats. It should operate using a first-in first-out.
 
 ## Solution
 <!-- Embedded whiteboard image -->
-![](/img/animal-shelter.jpeg)
+![](./img/animal-shelter.jpeg)
