@@ -9,7 +9,7 @@
   Reveres it
   Return it
 */
-// module.exports = function reverse(list) {
+module.exports = function reverse(list) {
 //   let cur = list.head
 //   if (cur === null) return 'empty'
 //   let prev = null
@@ -20,4 +20,5 @@
 //     cur = tempNext 
 //   }
 //   return prev
-// }
+return true
+}
