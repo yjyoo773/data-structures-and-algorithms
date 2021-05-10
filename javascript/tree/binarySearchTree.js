@@ -80,6 +80,15 @@ class BinarySearchTree {
     _walk(this.root);
     return result;
   }
+
+  findMaxValue() {
+    let list = this.postOrderTraverse()
+    let max = - (2 ** 31)
+    for (let i = 0; i < list.length ; i++){
+      max = max < list[i] ? list[i] : max
+    }
+    return max
+  }
 }
 
 module.exports = BinarySearchTree;
