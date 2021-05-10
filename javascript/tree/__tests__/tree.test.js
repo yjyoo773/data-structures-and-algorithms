@@ -64,4 +64,17 @@ describe("BST TESTS",()=>{
         let expected = [2,4,7,5,32,21,20,10]
         expect(tree.postOrderTraverse()).toEqual(expected)
     })
+
+    it('can successfully return the largest value from the tree',()=>{
+        let tree = new BST()
+        tree.add(10)
+        tree.add(5)
+        tree.add(20)
+        tree.add(4)
+        tree.add(7)
+        tree.add(21)
+        tree.add(32)
+        tree.add(2)
+        expect(tree.findMaxValue()).toEqual(32)
+    })
 })
