@@ -82,12 +82,29 @@ class BinarySearchTree {
   }
 
   findMaxValue() {
-    let list = this.postOrderTraverse()
-    let max = - (2 ** 31)
-    for (let i = 0; i < list.length ; i++){
-      max = max < list[i] ? list[i] : max
+    let list = this.postOrderTraverse();
+    let max = -(2 ** 31);
+    for (let i = 0; i < list.length; i++) {
+      max = max < list[i] ? list[i] : max;
     }
-    return max
+    return max;
+  }
+
+  breadthFirst() {
+    if (this.root === null) return [];
+
+    const queue = [this.root];
+    const result = [];
+    while (queue.length !== 0) {
+      let queueLength = queue.length;
+      for (let i = 0; i < queueLength; i++) {
+        let node = queue.shift();
+        result.push(node.val);
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+      }
+    }
+    return result;
   }
 }
 
