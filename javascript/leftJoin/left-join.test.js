@@ -11,7 +11,7 @@ describe("LEFT JOIN", () => {
     let a2 = {
       xfond: "b",
       xguide: "b",
-      xwrath: "b",
+      xxwrath: "b",
       xoutfit: "b",
     };
     let expected = {

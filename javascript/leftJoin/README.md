@@ -1,3 +1,3 @@
 # Left Join
 
-![](./leftjoin.jpeg)
+![](./leftjoin.jpeg)  

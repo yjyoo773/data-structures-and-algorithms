@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 function leftJoin(h1, h2) {
   let result = {};
