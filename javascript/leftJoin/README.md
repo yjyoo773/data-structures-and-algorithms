@@ -1,0 +1,3 @@
+# Left Join
+
+![](./leftjoin.jpeg)
